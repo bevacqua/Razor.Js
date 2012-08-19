@@ -1,6 +1,24 @@
-# Build Folders (you can keep bin if you'd like, to store dlls and pdbs)
+# Build Folders
+sql
 bin
 obj
 
+# not a build folder per se, but the NuGet packages repository
+packages
+
 # mstest test results
 TestResults
+
+# Local cache files
+_ReSharper*
+*.cache
+*.debug.css
+
+# local environment configuration files
+*.suo
+*.user
+desktop.ini
+
+# db project files
+*.dbmdl
+*.schemaview
