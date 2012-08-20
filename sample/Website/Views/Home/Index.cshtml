@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Vehicle>
+@{
+    ViewBag.Title = "My Vehicles";
+}
+<section id="vehicles">
+    <h2>@ViewBag.Title</h2>
+    @foreach (Vehicle vehicle in Model)
+    {
+        @Html.Partial("Vehicle", vehicle)
+    }
+    <div>
+        <button id="load-more">More Vehicles!</button>
+    </div>
+</section>
+
+<script>
+    var vehicleTemplate = @Html.RazorTemplate("Vehicle")
+
+    $(function() {
+        $('#load-more').click(function() {
+            $.ajax({
+                url: '@Url.Action("MoreVehicles", "Home")',
+                success: function (vehicles) {
+                    var container = $('#vehicles');
+                    $.each(vehicles, function () {
+                        var result = vehicleTemplate(this);
+                        container.append(result);
+                    });
+                }
+            });
+        });
+    });
+</script>

@@ -1,0 +1,17 @@
+﻿@model Vehicle
+<div class="vehicle">
+    <h2><em>@Model.Name</em></h2>
+    
+    <div class="details">
+        <p class="type">Type: @Model.Type</p>
+        <p class="price">Price: U$S @Model.Price</p>
+    </div>
+    
+    <h5>Components</h5>
+    <ul class="components">
+    @foreach(Component component in Model.Components)
+    {
+        <li><i>@component.Color</i> <b>@component.Name</b></li>
+    }
+    </ul>
+</div>
